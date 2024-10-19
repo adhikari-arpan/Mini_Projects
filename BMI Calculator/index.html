@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>BMI Calculator</h1>
+      <br>
+      <form>
+        <div class="input-group">
+          <label for="height">Height (cm):</label>
+          <input type="number" id="height" placeholder="Enter your height" />
+        </div>
+
+        <div class="input-group">
+          <label for="weight">Weight (kg):</label>
+          <input type="number" id="weight" placeholder="Enter your weight" />
+        </div>
+
+        <button id="calculate-btn">Calculate BMI</button>
+
+        <div id="result"></div>
+      </form>
+
+      <ul class="bmi-range">
+        <li>Underweight: BMI < 18.5</li>
+        <li>Normal weight: BMI 18.5–24.9</li>
+        <li>Overweight: BMI 25–29.9</li>
+        <li>Obesity: BMI 30 or greater</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>
+        Made by <a href="https://www.arpanadhikari7.com.np" target="_blank">Arpan Adhikari</a>
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
