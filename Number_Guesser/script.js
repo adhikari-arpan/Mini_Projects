@@ -25,7 +25,7 @@ function validateGuess(guess) {
     else {
         prevguess.push(guess);
         if (numOfGuess == 1) {
-            startOver.style.display = 'block'; // Show results
+            startOver.style.display = 'block'; 
         }
         if (numOfGuess >= 10) {
             displayGuess(guess);
@@ -79,6 +79,7 @@ function initialize() {
     playGame = true;
     guessSlot.innerHTML = '';
     guessrem.innerHTML = `${11 - numOfGuess}`;
+    msg.innerHTML = '';
 }
 
 function newGame() {
@@ -87,5 +88,6 @@ function newGame() {
         initialize();
         userInput.removeAttribute('disabled');
         startOver.removeChild(p);
+        startOver.style.display = 'none';
     })
 }
