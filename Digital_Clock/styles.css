@@ -68,3 +68,22 @@ option {
     transform: translateY(-5px);
 }
 
+footer{
+    position: absolute;
+    bottom: 10px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+
+footer a:hover {
+    color: #4CAF50; 
+    text-decoration: underline; 
+}
