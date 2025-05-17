@@ -7,7 +7,7 @@ print(" Created by Arpan Adhikari \n")
 
 user = int(input("Enter a number according to the choice. \n1.Rock ✊ \n2.Paper 🤚 \n3.Scissor ✌️\n"))
 
-computer = random.randint(1,4)
+computer = random.randint(1,3)
 
 #User Choice
 if(user == 1):
