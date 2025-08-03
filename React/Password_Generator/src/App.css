@@ -1,0 +1,17 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-image: url('https://img.freepik.com/free-vector/abstract-secure-technology-background_23-2148331624.jpg?semt=ais_items_boosted&w=740'); 
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Keep image fixed when scrolling (if content exceeds screen height) */
+  /* Optional: Add an overlay for better text readability */
+  background-color: rgba(0, 0, 0, 0.6); /* Fallback color and slight overlay */
+  background-blend-mode: multiply; /* Blends image with background-color */
+}
