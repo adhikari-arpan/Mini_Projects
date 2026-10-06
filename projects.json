@@ -1,6 +1,6 @@
 {
   "title": "Mini Projects",
-  "summary": "Small projects built while learning web development: vanilla JS, React, Node.js and Python.",
+  "summary": "Small projects built while learning",
   "repoUrl": "https://github.com/adhikari-arpan/My_Projects",
   "categories": [
     { "id": "javascript", "label": "Vanilla JavaScript", "path": "Javascript" },
