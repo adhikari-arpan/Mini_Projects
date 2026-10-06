@@ -1,0 +1,39 @@
+# Regenerates projects.json whenever projects change, so new project folders
+# appear on the portfolio automatically. Pushes made with the built-in
+# GITHUB_TOKEN don't trigger workflows again, so this can't loop.
+name: Update projects.json
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - projects.json
+  workflow_dispatch: # also runnable by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate projects.json
+        run: node scripts/generate-manifest.mjs
+
+      - name: Commit if it changed
+        run: |
+          if git diff --quiet -- projects.json; then
+            echo "projects.json already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add projects.json
+          git commit -m "chore: update projects.json"
+          git push

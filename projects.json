@@ -1,7 +1,7 @@
 {
   "title": "Mini Projects",
   "summary": "Small projects built while learning",
-  "repoUrl": "https://github.com/adhikari-arpan/My_Projects",
+  "repoUrl": "https://github.com/adhikari-arpan/Mini_Projects",
   "categories": [
     { "id": "javascript", "label": "Vanilla JavaScript", "path": "Javascript" },
     { "id": "react", "label": "React", "path": "React" },
