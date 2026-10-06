@@ -172,11 +172,12 @@
       "category": "ollama",
       "description": "Turns rental listings written in plain English into structured JSON using a local AI model running through Ollama.",
       "tech": ["Python", "Ollama", "Qwen3"],
-      "concepts": ["Ollama", "Prompt engineering", "Inserting each listing into the", "Json.loads"],
+      "concepts": ["Running an LLM locally", "Prompt engineering", "Inserting each listing", "Converting the model's text reply"],
       "path": "Ollama/Listing Extractor",
       "type": "cli",
       "status": "complete",
-      "demoUrl": null
+      "demoUrl": null,
+      "generated": true
     }
   ]
 }

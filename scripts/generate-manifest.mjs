@@ -7,8 +7,11 @@
 //
 // Rules
 //   - Every top-level folder is a category; every folder inside it is a project.
-//   - Existing entries in projects.json are kept as they are (hand-written text
-//     wins). Only new folders get auto-generated entries; deleted folders drop out.
+//   - New folders get auto-generated entries marked "generated": true, which are
+//     rebuilt on every run so README edits flow through. Entries without that
+//     flag are hand-written and kept exactly as they are — to hand-edit an
+//     auto entry, edit it in projects.json and delete its "generated" line.
+//     Deleted folders drop out.
 //   - Optional per-project overrides: <project>/project.json, e.g.
 //       { "demoUrl": "https://…", "image": "screenshot.png", "hidden": true }
 //     Fields there always win, and "hidden": true leaves the project out.
@@ -82,6 +85,31 @@ const stripMd = (s) =>
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 
 // ── README parsing ───────────────────────────────────────────────────────
+// Turns one "Concepts Practised" bullet into a short tag. Best results come
+// from writing the key phrase in **bold** in the README; otherwise it uses a
+// "Topic: explanation" lead-in, or the start of the sentence up to a natural
+// break ("with", "into", "to", …).
+const BREAK_WORDS = /^(with|into|to|by|using|from|for|via|through|and|so|that|when|in|on|as|which)$/i;
+function conceptLabel(item) {
+  // Capitalise plain words only — never identifiers like json.loads or useState.
+  const tidy = (s) => {
+    const t = stripMd(s).replace(/^(a|an|the)\s+/i, '').replace(/[,.;:]+$/, '').trim();
+    return /^[a-z]+(\s|$)/.test(t) ? t.replace(/^./, (c) => c.toUpperCase()) : t;
+  };
+  const bold = item.match(/\*\*([^*]+)\*\*/);
+  if (bold) return tidy(bold[1]);
+  const text = stripMd(item);
+  const lead = text.split(/:\s|\s[—–]\s|\s-\s/)[0];
+  if (lead !== text && lead.split(' ').length <= 5) return tidy(lead);
+  const words = [];
+  for (const w of text.split(' ')) {
+    if (words.length >= 2 && BREAK_WORDS.test(w)) break;
+    words.push(w);
+    if (words.length >= 5) break;
+  }
+  return tidy(words.join(' '));
+}
+
 function parseReadme(md) {
   if (!md) return {};
   const lines = md.split(/\r?\n/);
@@ -117,7 +145,7 @@ function parseReadme(md) {
     );
   }
 
-  // Bullets under a "Concepts" heading → short labels.
+  // Bullets under a "Concepts" heading → short labels (max 4).
   const concepts = [];
   const ci = lines.findIndex((l) => /^#{2,4}\s.*concept/i.test(l));
   if (ci !== -1) {
@@ -125,12 +153,7 @@ function parseReadme(md) {
       const l = lines[i].trim();
       if (/^#/.test(l)) break;
       const m = l.match(/^[-*]\s+(.*)$/);
-      if (!m) continue;
-      const item = m[1];
-      const bold = item.match(/\*\*([^*]+)\*\*/);
-      const code = item.match(/`([^`]+)`/);
-      const label = bold?.[1] || code?.[1] || stripMd(item).split(/\s[—–-]\s|\s\(|:\s/)[0].split(' ').slice(0, 5).join(' ');
-      concepts.push(stripMd(label).replace(/^(a|an|the)\s+/i, '').replace(/^./, (c) => c.toUpperCase()));
+      if (m) concepts.push(conceptLabel(m[1]));
     }
   }
 
@@ -217,12 +240,18 @@ for (const catDir of subdirs(ROOT)) {
     if (override.hidden) continue;
 
     let entry = existingByPath.get(relPath);
-    if (!entry) {
+    // Hand-written entries (no "generated" flag) are kept exactly as they
+    // are. Auto-generated ones are rebuilt every run so README edits show up.
+    if (!entry || entry.generated) {
       const readme = parseReadme(readText(path.join(abs, 'README.md')));
       const found = detect(abs);
-      let id = slugify(projDir);
-      for (let n = 2; usedIds.has(id); n++) id = `${slugify(projDir)}-${n}`;
-      usedIds.add(id);
+      let id = entry?.id;
+      if (!id) {
+        id = slugify(projDir);
+        for (let n = 2; usedIds.has(id); n++) id = `${slugify(projDir)}-${n}`;
+        usedIds.add(id);
+      }
+      if (!existingByPath.has(relPath)) added.push(relPath);
       entry = {
         id,
         title: readme.title || humanize(projDir),
@@ -235,8 +264,8 @@ for (const catDir of subdirs(ROOT)) {
         status: 'complete',
         demoUrl: null,
         ...(found.image ? { image: found.image } : {}),
+        generated: true,
       };
-      added.push(relPath);
     }
 
     const { hidden: _hidden, ...overrideFields } = override;
