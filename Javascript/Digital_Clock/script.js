@@ -2,9 +2,9 @@ const clock = document.querySelector('#clock');
 const currdate = document.querySelector('#date');
 const timezoneSelector = document.getElementById('timezone');
 
-setInterval(function(){
-    let date = new Date();
-    let selectedTimezone = timezoneSelector.value;
+function updateTime() {
+  let date = new Date();
+  let selectedTimezone = timezoneSelector.value;
 
   let time = date.toLocaleTimeString('en-US', {
     timeZone: selectedTimezone,
@@ -13,10 +13,11 @@ setInterval(function(){
     second: '2-digit',
   });
 
-  currdate.innerHTML = `Today's Date: ${date.toLocaleDateString()}`
+  currdate.innerHTML = `Today's Date: ${date.toLocaleDateString('en-US', { timeZone: selectedTimezone })}`
   clock.innerHTML = time;
+}
 
-},1000)
+updateTime();
+setInterval(updateTime, 1000);
 
 timezoneSelector.addEventListener('change', updateTime);
-
