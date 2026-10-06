@@ -1,12 +1,33 @@
-# React + Vite
+# 🔐 Password Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Generates a random password from the options you choose and copies it to your clipboard with one click.
 
-Currently, two official plugins are available:
+**Tech:** React 19 · Vite · Tailwind CSS v4
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Length slider from 6 to 100 characters
+- Optional numbers and special characters
+- A new password is generated whenever an option changes
+- **Copy** button selects the password and copies it to the clipboard
 
-## Expanding the ESLint configuration
+## Concepts Practised
+- `useState` for the options
+- `useCallback` to memoise the generator and copy functions
+- `useEffect` to regenerate the password when the options change
+- `useRef` to select the text in the input
+- The Clipboard API (`navigator.clipboard.writeText`)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run Locally
+```bash
+npm install
+npm run dev
+```
+Then open the URL Vite prints, usually http://localhost:5173.
+
+## Files
+```
+src/
+├── App.jsx     # Generator logic, options and UI
+├── main.jsx    # React entry point
+└── index.css   # Tailwind import
+```

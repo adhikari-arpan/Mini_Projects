@@ -1,12 +1,30 @@
-# React + Vite
+# ➕ Counter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A counter with Increase and Decrease buttons. It stays between 0 and 20.
 
-Currently, two official plugins are available:
+**Tech:** React 19 · Vite · CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Increase and decrease the value
+- The value never goes below **0** or above **20**
+- Each button is disabled when the counter reaches its limit
 
-## Expanding the ESLint configuration
+## Concepts Practised
+- The `useState` hook and how React re-renders on state change
+- Event handlers in JSX
+- Disabling buttons based on state
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run Locally
+```bash
+npm install
+npm run dev
+```
+Then open the URL Vite prints, usually http://localhost:5173.
+
+## Files
+```
+src/
+├── App.jsx     # Counter logic and UI
+├── App.css     # Component styles
+└── main.jsx    # React entry point
+```

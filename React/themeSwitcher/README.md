@@ -1,12 +1,34 @@
-# React + Vite
+# 🌗 Theme Switcher
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A light/dark mode toggle that shares the current theme with every component through the React Context API.
 
-Currently, two official plugins are available:
+**Tech:** React 19 · Vite · Tailwind CSS v4 (class-based dark mode)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Toggle between light and dark themes
+- The theme is stored in a Context so any component can read or change it, with no prop drilling
+- Tailwind's `dark:` classes switch automatically with the theme
+- A toggle switch and a demo card that both read the theme from context
 
-## Expanding the ESLint configuration
+## Concepts Practised
+- `createContext`, `Context.Provider` and `useContext`
+- Wrapping `useContext` in a custom hook (`useTheme`)
+- Changing the `<html>` element's class from React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run Locally
+```bash
+npm install
+npm run dev
+```
+Then open the URL Vite prints, usually http://localhost:5173.
+
+## Files
+```
+src/
+├── App.jsx              # Theme state + provider
+├── components/
+│   ├── ThemeBtn.jsx     # Light/dark toggle switch
+│   └── Card.jsx         # Demo card that follows the theme
+└── contexts/
+    └── theme.js         # ThemeContext, ThemeProvider, useTheme hook
+```

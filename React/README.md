@@ -1,14 +1,20 @@
+# React Projects
 
-## Node Modules Installation Guidelines
+Projects built with React 19 + Vite, mostly styled with Tailwind CSS v4. They move from basic state to hooks, context and routing.
 
-The `.gitignore` file in this project is configured to prevent the `node_modules` folder from being pushed to the repository.
+| Project | Key Concepts | Status |
+|---------|--------------|--------|
+| [Counter](Counter_React) | `useState`, conditional disabling | ✅ |
+| [Background Colour Changer](BGChanger_React) | `useState`, Tailwind | ✅ |
+| [Password Generator](Password_Generator) | `useCallback`, `useEffect`, `useRef`, Clipboard API | ✅ |
+| [Currency Converter](currencyConverter) | Custom hook, API fetch, reusable components | ✅ |
+| [React Router Project](Router_Project) | React Router v7, nested layouts | ✅ |
+| [Theme Switcher](themeSwitcher) | Context API, dark mode | ✅ |
 
-**Before running any project, make sure to install the required node modules by running the following command in your project directory:**
-
+## Running a Project
+`node_modules` is git-ignored, so install the dependencies first:
 ```bash
+cd <project-folder>
 npm install
+npm run dev
 ```
-
-This will install all the dependencies specified in the `package.json` file.
-
----

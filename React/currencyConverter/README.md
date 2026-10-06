@@ -1,12 +1,37 @@
-# React + Vite
+# 💱 Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Converts between more than 150 currencies using live exchange rates from a public API.
 
-Currently, two official plugins are available:
+**Tech:** React 19 · Vite · Tailwind CSS v4 · [fawazahmed0 Currency API](https://github.com/fawazahmed0/exchange-api)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Live exchange rates fetched for the selected base currency
+- Dropdowns listing every currency the API supports
+- **Swap** button that flips the From and To currencies
+- Glassmorphism card design
+- Defaults to **USD → NPR**
 
-## Expanding the ESLint configuration
+## Concepts Practised
+- **A custom hook** (`useCurrencyInfo`) that fetches rates whenever the base currency changes
+- **A reusable component** (`InputBox`) configured through props
+- `useId` for accessible label–input pairs
+- Lifting state up and passing callbacks to child components
+- Exporting components from a single `components/index.js` file
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run Locally
+```bash
+npm install
+npm run dev
+```
+Then open the URL Vite prints, usually http://localhost:5173.
+
+## Files
+```
+src/
+├── App.jsx                   # Conversion state, swap logic and layout
+├── components/
+│   ├── InputBox.jsx          # Reusable amount + currency selector
+│   └── index.js              # Exports all components
+└── hooks/
+    └── useCurrencyInfo.js    # Fetches exchange rates
+```

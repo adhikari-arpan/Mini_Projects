@@ -17,7 +17,7 @@ function App() {
     if (characters) str += "!@#$%^&*/?><";
 
     for (let i = 0; i < length; i++) {
-      let char = Math.floor(Math.random() * str.length + 1);
+      let char = Math.floor(Math.random() * str.length);
       pass += str.charAt(char);
     }
 
@@ -26,7 +26,7 @@ function App() {
 
   const copyPasswordToClipboard = useCallback(() =>{
     passwordRef.current?.select();
-    passwordRef.current?.setSelectionRange(0,20);
+    passwordRef.current?.setSelectionRange(0, password.length);
     window.navigator.clipboard.writeText(password);
   },[password])
 
@@ -57,7 +57,7 @@ function App() {
               value={length}
               className="cursor-pointer h-2 w-28 sm:w-36 accent-blue-500"
               onChange={(e) => {
-                setLength(e.target.value);
+                setLength(Number(e.target.value));
               }}
             />
             <label className="text-white font-medium whitespace-nowrap">Length : <span className="font-bold text-orange-400">{length}</span></label>
@@ -77,7 +77,7 @@ function App() {
           <div className="flex items-center gap-x-2">
             <input
               type="checkbox"
-              defaultChecked={numbers}
+              defaultChecked={characters}
               id="characterInput"
               className="cursor-pointer w-5 h-5 text-blue-600 bg-gray-600 border-gray-500 rounded focus:ring-blue-500 focus:ring-2"
               onChange={() => {

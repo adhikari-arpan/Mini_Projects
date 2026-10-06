@@ -1,12 +1,42 @@
-# React + Vite
+# 🧭 React Router Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A multi-page layout built with React Router: a shared header and footer, with each page rendered between them.
 
-Currently, two official plugins are available:
+**Tech:** React 19 · Vite · Tailwind CSS v4 · React Router v7
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- A shared `Layout` component that renders each page through `<Outlet />`
+- Four pages: Home, About, Contact (form) and GitHub (live profile data from the GitHub API)
+- Navigation links that highlight the active page with `NavLink`
+- Responsive header, footer and landing page
 
-## Expanding the ESLint configuration
+## Concepts Practised
+- `createBrowserRouter` + `createRoutesFromElements`
+- Nested routes and layout routes
+- `Link` vs `NavLink` (styling the active link with `isActive`)
+- Fetching API data with `useEffect` and showing loading/error states
+- Organising components in their own folders
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run Locally
+```bash
+npm install
+npm run dev
+```
+Then open the URL Vite prints, usually http://localhost:5173.
+
+## Files
+```
+src/
+├── main.jsx              # Router configuration
+├── Layout.jsx            # Header + Outlet + Footer
+└── components/
+    ├── Header/Header.jsx
+    ├── Footer/Footer.jsx
+    ├── Home/Home.jsx
+    ├── About/About.jsx
+    ├── Contact/Contact.jsx
+    └── Github/Github.jsx   # Fetches GitHub profile
+```
+
+## Acknowledgements
+Built while following the *Chai aur React* series by Hitesh Choudhary.

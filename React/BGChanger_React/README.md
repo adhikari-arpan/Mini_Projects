@@ -1,12 +1,30 @@
-# React + Vite
+# 🎨 Background Colour Changer (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The same idea as the vanilla JS colour switcher, rebuilt in React. A floating toolbar of colour buttons changes the background of the whole screen.
 
-Currently, two official plugins are available:
+**Tech:** React 19 · Vite · Tailwind CSS v4
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Seven colour buttons in a pill-shaped floating toolbar
+- Smooth colour transition (`duration-200`)
+- Responsive: the buttons wrap on small screens
 
-## Expanding the ESLint configuration
+## Concepts Practised
+- The `useState` hook
+- Inline style binding (`style={{ backgroundColor: color }}`)
+- Tailwind utility classes for layout and positioning
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run Locally
+```bash
+npm install
+npm run dev
+```
+Then open the URL Vite prints, usually http://localhost:5173.
+
+## Files
+```
+src/
+├── App.jsx     # Colour state and button toolbar
+├── main.jsx    # React entry point
+└── index.css   # Tailwind import
+```
