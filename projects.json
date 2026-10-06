@@ -6,7 +6,8 @@
     { "id": "javascript", "label": "Vanilla JavaScript", "path": "Javascript" },
     { "id": "react", "label": "React", "path": "React" },
     { "id": "node", "label": "Node.js", "path": "Node" },
-    { "id": "python", "label": "Python", "path": "Python" }
+    { "id": "python", "label": "Python", "path": "Python" },
+    { "id": "ollama", "label": "Ollama", "path": "Ollama" }
   ],
   "projects": [
     {
@@ -161,6 +162,18 @@
       "tech": ["Python"],
       "concepts": ["random module", "Conditionals", "Input validation"],
       "path": "Python/Rock_Paper_Scissor",
+      "type": "cli",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "listing-extractor",
+      "title": "Rental Listing Extractor",
+      "category": "ollama",
+      "description": "Turns rental listings written in plain English into structured JSON using a local AI model running through Ollama.",
+      "tech": ["Python", "Ollama", "Qwen3"],
+      "concepts": ["Ollama", "Prompt engineering", "Inserting each listing into the", "Json.loads"],
+      "path": "Ollama/Listing Extractor",
       "type": "cli",
       "status": "complete",
       "demoUrl": null
