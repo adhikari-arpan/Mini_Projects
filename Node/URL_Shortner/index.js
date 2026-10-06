@@ -17,7 +17,7 @@ app.set("views", path.resolve("./views"));
 //Specifies that view engine is ejs and nextviews ko file haru views vanney folder ma xa
 
 app.use(express.json());
-app.use(express.urlencoded({estended : false}));
+app.use(express.urlencoded({ extended: false }));
 // Support for form data
 
 app.use("/url", urlRoute);
