@@ -1,0 +1,169 @@
+{
+  "title": "Mini Projects",
+  "summary": "Small projects built while learning web development: vanilla JS, React, Node.js and Python.",
+  "repoUrl": "https://github.com/adhikari-arpan/My_Projects",
+  "categories": [
+    { "id": "javascript", "label": "Vanilla JavaScript", "path": "Javascript" },
+    { "id": "react", "label": "React", "path": "React" },
+    { "id": "node", "label": "Node.js", "path": "Node" },
+    { "id": "python", "label": "Python", "path": "Python" }
+  ],
+  "projects": [
+    {
+      "id": "bg-changer-js",
+      "title": "Background Colour Switcher",
+      "category": "javascript",
+      "description": "Click a colour swatch to change the page background.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "concepts": ["DOM events", "querySelectorAll", "Inline styles"],
+      "path": "Javascript/BGChanger_JS",
+      "type": "static",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "bmi-calculator",
+      "title": "BMI Calculator",
+      "category": "javascript",
+      "description": "Calculates Body Mass Index from height and weight and shows the health category.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "concepts": ["Form handling", "Input validation", "Conditional logic"],
+      "path": "Javascript/BMI_Calculator",
+      "type": "static",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "digital-clock",
+      "title": "World Digital Clock",
+      "category": "javascript",
+      "description": "Live clock with a time zone selector.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "concepts": ["setInterval", "Date & Intl API", "Time zones"],
+      "path": "Javascript/Digital_Clock",
+      "type": "static",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "number-guesser",
+      "title": "Number Guessing Game",
+      "category": "javascript",
+      "description": "Guess a random number from 1 to 100 in 10 tries, with high/low hints.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "concepts": ["Game state", "Dynamic DOM", "Modular functions"],
+      "path": "Javascript/Number_Guesser",
+      "type": "static",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "counter-react",
+      "title": "Counter",
+      "category": "react",
+      "description": "Counter limited to 0–20, with buttons that disable at the limits.",
+      "tech": ["React", "Vite", "CSS"],
+      "concepts": ["useState", "Event handlers"],
+      "path": "React/Counter_React",
+      "type": "vite",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "bg-changer-react",
+      "title": "Background Colour Changer (React)",
+      "category": "react",
+      "description": "Floating toolbar of colour buttons that changes the screen background.",
+      "tech": ["React", "Vite", "Tailwind CSS"],
+      "concepts": ["useState", "Style binding", "Tailwind"],
+      "path": "React/BGChanger_React",
+      "type": "vite",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "password-generator",
+      "title": "Password Generator",
+      "category": "react",
+      "description": "Random password generator with length and character options and copy-to-clipboard.",
+      "tech": ["React", "Vite", "Tailwind CSS"],
+      "concepts": ["useCallback", "useEffect", "useRef", "Clipboard API"],
+      "path": "React/Password_Generator",
+      "type": "vite",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "currency-converter",
+      "title": "Currency Converter",
+      "category": "react",
+      "description": "Converts between more than 150 currencies using live exchange rates.",
+      "tech": ["React", "Vite", "Tailwind CSS", "REST API"],
+      "concepts": ["Custom hooks", "Data fetching", "Reusable components", "useId"],
+      "path": "React/currencyConverter",
+      "type": "vite",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "router-project",
+      "title": "React Router Project",
+      "category": "react",
+      "description": "Multi-page site (Home, About, Contact, GitHub) with a shared layout, built on React Router v7.",
+      "tech": ["React", "Vite", "Tailwind CSS", "React Router"],
+      "concepts": ["Nested routes", "Layout routes", "NavLink"],
+      "path": "React/Router_Project",
+      "type": "vite",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "theme-switcher",
+      "title": "Theme Switcher",
+      "category": "react",
+      "description": "Light/dark mode toggle that shares the theme through the Context API.",
+      "tech": ["React", "Vite", "Tailwind CSS"],
+      "concepts": ["Context API", "useContext", "Dark mode"],
+      "path": "React/themeSwitcher",
+      "type": "vite",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "url-shortener",
+      "title": "URL Shortener",
+      "category": "node",
+      "description": "Full-stack URL shortener with redirects, click analytics and an EJS dashboard.",
+      "tech": ["Node.js", "Express", "MongoDB", "Mongoose", "EJS"],
+      "concepts": ["REST routing", "MVC structure", "Mongoose schemas", "Server-side rendering"],
+      "path": "Node/URL_Shortner",
+      "type": "server",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "python-calculator",
+      "title": "CLI Calculator",
+      "category": "python",
+      "description": "Menu-driven arithmetic calculator for the terminal.",
+      "tech": ["Python"],
+      "concepts": ["Functions", "Error handling", "Loops"],
+      "path": "Python/Calculator_in_Python",
+      "type": "cli",
+      "status": "complete",
+      "demoUrl": null
+    },
+    {
+      "id": "rock-paper-scissors",
+      "title": "Rock Paper Scissors",
+      "category": "python",
+      "description": "Play Rock Paper Scissors against the computer in the terminal.",
+      "tech": ["Python"],
+      "concepts": ["random module", "Conditionals", "Input validation"],
+      "path": "Python/Rock_Paper_Scissor",
+      "type": "cli",
+      "status": "complete",
+      "demoUrl": null
+    }
+  ]
+}
