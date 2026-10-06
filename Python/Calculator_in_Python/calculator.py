@@ -25,15 +25,23 @@ def calculate(operation,a,b):
 
 while(True):
     print("-------------- Welcome to Calculator --------------")
-    operation = int(input('Enter appropriate number according to operation you want to perform.\n 1. Add\t 2. Subtract\t 3. Multiply\t 4. Divide\t 5.Exit\n'))
+    try:
+        operation = int(input('Enter appropriate number according to operation you want to perform.\n 1. Add\t 2. Subtract\t 3. Multiply\t 4. Divide\t 5.Exit\n'))
+    except ValueError:
+        print("Please enter a valid number for the operation (1-5).\n")
+        continue
     if(operation == 5):
         calculate(5,0,0)
     elif operation not in [1,2,3,4]:
         print("Please enter a valid number for the operation (1-5).\n")
         continue
     else:
-        a = int(input('Enter first number\t'))
-        b = int(input('Enter second number\t'))
+        try:
+            a = float(input('Enter first number\t'))
+            b = float(input('Enter second number\t'))
+        except ValueError:
+            print("Please enter valid numbers.\n")
+            continue
         result = calculate(operation, a, b)
         print(f"The result is {result}. \n")
     

@@ -22,11 +22,11 @@ else:
 
 #Computer Choice
 if(computer == 1):
-    print("You choose ✊")
+    print("Computer chose ✊")
 elif(computer == 2):
-    print("You choose 🤚")
+    print("Computer chose 🤚")
 else:
-    print("You choose ✌️")
+    print("Computer chose ✌️")
 
 #Game Time
 if(user == computer):
